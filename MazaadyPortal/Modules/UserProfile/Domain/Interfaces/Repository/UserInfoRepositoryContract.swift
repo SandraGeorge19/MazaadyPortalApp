@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol UserInfoRepositoryContract {
+    func getUserInfo() async throws -> UserInfo
+}

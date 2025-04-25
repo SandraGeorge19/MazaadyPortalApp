@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+class GetAllTagsUseCase: GetAllTagsUseCaseContract {
+    private let repository: AllTagsRepositoryContract
+    
+    init(repository: AllTagsRepositoryContract = AllTagsRepository()) {
+        self.repository = repository
+    }
+    
+    func execute() async throws -> AllTags {
+        try await repository.getAllTags()
+    }
+}

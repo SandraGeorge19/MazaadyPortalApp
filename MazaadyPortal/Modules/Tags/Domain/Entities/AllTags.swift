@@ -1,3 +1,11 @@
+//
+//  AllTags.swift
+//  MazaadyPortal
+//
+//  Created by Sandra George on 25/04/2025.
+//
+
+
 // MARK: - AllTags
 struct AllTags: Codable {
     let tags: [Tag]

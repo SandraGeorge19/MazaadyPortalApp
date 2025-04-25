@@ -6,3 +6,19 @@
 //
 
 import Foundation
+
+
+class AdvertisementsService: AdvertisementsServiceContract {
+    private let networkManager: NetworkManagerContract
+    
+    init(networkManager: NetworkManagerContract = NetworkManager.shared) {
+        self.networkManager = networkManager
+    }
+    
+    func getAllAdds() async throws -> Advertisements {
+        return try await networkManager.sendRequest(
+            request: AdvertisementsEndPoint.ads,
+            responseType: Advertisements.self
+        )
+    }
+}

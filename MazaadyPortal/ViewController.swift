@@ -7,27 +7,6 @@
 
 import UIKit
 
-// MARK: - AllTags
-struct AllTags: Codable {
-    let tags: [Tag]
-}
-
-// MARK: - Tag
-struct Tag: Codable {
-    let id: Int
-    let name: String
-}
-
-enum TestEndPoint: EndPointContract {
-    case tags
-    
-    var path: String {
-        switch self {
-        case .tags:
-            NetworkConstants.tags
-        }
-    }
-}
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -42,7 +21,7 @@ class ViewController: UIViewController {
 
     func asyncCall() async throws -> AllTags {
         do {
-            return try await NetworkManager.shared.sendRequest(request: TestEndPoint.tags, responseType: AllTags.self)
+            return try await NetworkManager.shared.sendRequest(request: AllTagsEndPoints.allTags, responseType: AllTags.self)
         } catch {
             throw error
         }

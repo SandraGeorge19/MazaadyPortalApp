@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol GetAllTagsUseCaseContract {
+    func execute() async throws -> AllTags
+}

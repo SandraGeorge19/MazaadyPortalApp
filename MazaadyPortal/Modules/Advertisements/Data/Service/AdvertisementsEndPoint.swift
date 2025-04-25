@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+enum AdvertisementsEndPoint: EndPointContract {
+    case ads
+    
+    var path: String {
+        switch self {
+        case .ads:
+            return NetworkConstants.ads
+        }
+    }
+}

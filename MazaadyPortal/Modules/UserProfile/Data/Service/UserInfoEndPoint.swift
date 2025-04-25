@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+enum UserInfoEndPoint: EndPointContract {
+    case userInfo
+    
+    var path: String {
+        switch self {
+        case .userInfo:
+            return NetworkConstants.userInfo
+        }
+    }
+}

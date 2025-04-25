@@ -15,7 +15,6 @@ class NetworkManager: NetworkManagerContract {
     }
     
     func sendRequest<T: Codable>(request: EndPointContract, responseType: T.Type) async throws -> T {
-        print("Test")
         do {
             let generatedRequest = try buildURLRequest(from: request)
             let (data, response) = try await URLSession.shared.data(for: generatedRequest)

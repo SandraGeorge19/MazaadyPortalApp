@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+
+enum AllTagsEndPoints: EndPointContract {
+    case allTags
+    
+    var path: String {
+        switch self {
+        case .allTags:
+            NetworkConstants.tags
+        }
+    }
+}

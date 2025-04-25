@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol AllTagsServiceContract {
+    func getAllTags() async throws -> AllTags
+}

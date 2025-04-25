@@ -6,3 +6,16 @@
 //
 
 import Foundation
+
+
+class GetAllProductsUseCase: GetAllProductsUseCaseContract {
+    private let repository: ProductsRepositoryContract
+    
+    init(repository: ProductsRepositoryContract = ProductsRepository()) {
+        self.repository = repository
+    }
+    
+    func execute() async throws -> [Product] {
+        return try await repository.getAllProducts()
+    }
+}

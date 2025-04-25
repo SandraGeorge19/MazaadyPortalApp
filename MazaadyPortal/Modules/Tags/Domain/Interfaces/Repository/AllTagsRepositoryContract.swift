@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol AllTagsRepositoryContract {
+    func getAllTags() async throws -> AllTags
+}

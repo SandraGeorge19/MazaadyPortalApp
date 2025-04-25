@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+class AllTagsRepository: AllTagsRepositoryContract {
+    private let service: AllTagsServiceContract
+    
+    init(service: AllTagsServiceContract = AllTagsService()) {
+        self.service = service
+    }
+    
+    func getAllTags() async throws -> AllTags {
+        try await service.getAllTags()
+    }
+}

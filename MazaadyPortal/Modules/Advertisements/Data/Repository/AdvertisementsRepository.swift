@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+class AdvertisementsRepository: AdvertisementsRepositoryContract {
+    private let service: AdvertisementsServiceContract
+    
+    init(service: AdvertisementsServiceContract = AdvertisementsService()) {
+        self.service = service
+    }
+    
+    func getAllAdds() async throws -> Advertisements {
+        try await service.getAllAdds()
+    }
+}

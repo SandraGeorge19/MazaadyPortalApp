@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+protocol GetAdvertisementsUseCaseContract {
+    func execute() async throws -> Advertisements
+}
+
