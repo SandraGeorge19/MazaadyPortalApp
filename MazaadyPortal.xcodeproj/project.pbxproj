@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		21AD13C82DBC175D0081EA5F /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 21AD13C72DBC175D0081EA5F /* SDWebImage */; };
+		21AD13CA2DBC175D0081EA5F /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 21AD13C92DBC175D0081EA5F /* SDWebImageMapKit */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		21E5BCC42DBA7CFB00FD1110 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -65,6 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21AD13CA2DBC175D0081EA5F /* SDWebImageMapKit in Frameworks */,
+				21AD13C82DBC175D0081EA5F /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +132,8 @@
 			);
 			name = MazaadyPortal;
 			packageProductDependencies = (
+				21AD13C72DBC175D0081EA5F /* SDWebImage */,
+				21AD13C92DBC175D0081EA5F /* SDWebImageMapKit */,
 			);
 			productName = MazaadyPortal;
 			productReference = 21E5BCAA2DBA7CF800FD1110 /* MazaadyPortal.app */;
@@ -208,6 +217,9 @@
 			);
 			mainGroup = 21E5BCA12DBA7CF800FD1110;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				21AD13C62DBC175D0081EA5F /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 21E5BCAB2DBA7CF800FD1110 /* Products */;
 			projectDirPath = "";
@@ -293,7 +305,7 @@
 				INFOPLIST_FILE = MazaadyPortal/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = UserProfile;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -320,7 +332,7 @@
 				INFOPLIST_FILE = MazaadyPortal/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = UserProfile;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -563,6 +575,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		21AD13C62DBC175D0081EA5F /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.21.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		21AD13C72DBC175D0081EA5F /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 21AD13C62DBC175D0081EA5F /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		21AD13C92DBC175D0081EA5F /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 21AD13C62DBC175D0081EA5F /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 21E5BCA22DBA7CF800FD1110 /* Project object */;
 }

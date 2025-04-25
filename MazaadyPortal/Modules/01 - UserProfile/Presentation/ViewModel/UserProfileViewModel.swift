@@ -9,6 +9,9 @@ import Foundation
 import Combine
 
 final class UserProfileViewModel: UserProfileViewModelContract {
+    @Published var userInfo: UserInfo?
+    @Published var advertisements: Advertisements?
+    
     private let getUserInfoUseCase: GetUserInfoUseCaseContract
     private let getProductsUseCase: GetAllProductsUseCaseContract
     private let searchForProductsUseCase: SearchForProductUseCaseContract
@@ -29,8 +32,9 @@ final class UserProfileViewModel: UserProfileViewModelContract {
         self.getAllTagsUseCase = getAllTagsUseCase
     }
     
-    func getUserInfo() async throws -> UserInfo {
-        return try await getUserInfoUseCase.execute()
+    func getUserInfo() async throws {
+        let userInfo = try await getUserInfoUseCase.execute()
+        self.userInfo = userInfo
     }
     
     func getProducts() async throws -> [Product] {
@@ -41,8 +45,9 @@ final class UserProfileViewModel: UserProfileViewModelContract {
         return try await searchForProductsUseCase.execute(searchText: searchText)
     }
     
-    func getAdvertisements() async throws -> Advertisements {
-        return try await getAdvertisementUseCase.execute()
+    func getAdvertisements() async throws {
+        let ads = try await getAdvertisementUseCase.execute()
+        self.advertisements = ads
     }
     
     func getAllTags() async throws -> AllTags {
