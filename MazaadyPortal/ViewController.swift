@@ -9,19 +9,20 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    let viewModel = HomeViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         Task {
             let all = try await asyncCall()
-            print("all are: \(all.tags)")
+            print("all are: \(all)")
         }
         
     }
 
-    func asyncCall() async throws -> AllTags {
+    func asyncCall() async throws -> [Product] {
         do {
-            return try await NetworkManager.shared.sendRequest(request: AllTagsEndPoints.allTags, responseType: AllTags.self)
+            return try await viewModel.searchForProduct(searchText: "bid")
         } catch {
             throw error
         }
