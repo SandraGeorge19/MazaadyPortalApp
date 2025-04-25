@@ -15,8 +15,20 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wRp-AE-pQY">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="eso-U8-NhN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wRp-AE-pQY" firstAttribute="trailing" secondItem="eso-U8-NhN" secondAttribute="trailing" id="P1k-N4-wlA"/>
+                            <constraint firstItem="wRp-AE-pQY" firstAttribute="leading" secondItem="eso-U8-NhN" secondAttribute="leading" id="Tpx-Yt-Jti"/>
+                            <constraint firstAttribute="bottom" secondItem="wRp-AE-pQY" secondAttribute="bottom" id="Uz4-C4-9Ur"/>
+                            <constraint firstItem="wRp-AE-pQY" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="VDO-Qq-mNu"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

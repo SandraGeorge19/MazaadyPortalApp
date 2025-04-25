@@ -1,5 +1,5 @@
 //
-//  HomeViewModel.swift
+//  UserProfileViewModel.swift
 //  MazaadyPortal
 //
 //  Created by Sandra George on 25/04/2025.
@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-final class HomeViewModel: HomeViewModelContract {
+final class UserProfileViewModel: UserProfileViewModelContract {
     private let getUserInfoUseCase: GetUserInfoUseCaseContract
     private let getProductsUseCase: GetAllProductsUseCaseContract
     private let searchForProductsUseCase: SearchForProductUseCaseContract
