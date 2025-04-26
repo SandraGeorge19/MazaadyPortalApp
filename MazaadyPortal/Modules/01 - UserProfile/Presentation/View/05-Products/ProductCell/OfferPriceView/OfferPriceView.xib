@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OfferPriceView" customModule="MazaadyPortal" customModuleProvider="target">
+            <connections>
+                <outlet property="offerPriceTitle" destination="DDn-Si-xr1" id="z9E-P5-wKc"/>
+                <outlet property="offerPriceValue" destination="arB-yG-ulN" id="dKa-ya-Lti"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="123" height="67"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DDn-Si-xr1">
+                    <rect key="frame" x="0.0" y="7.9999999999999982" width="119" height="20.333333333333329"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="arB-yG-ulN">
+                    <rect key="frame" x="0.0" y="32.333333333333336" width="119" height="26.666666666666664"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="DDn-Si-xr1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="CMI-5c-V7Z"/>
+                <constraint firstAttribute="trailing" secondItem="DDn-Si-xr1" secondAttribute="trailing" constant="4" id="aCf-12-KOp"/>
+                <constraint firstItem="DDn-Si-xr1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="e1u-2W-DAi"/>
+                <constraint firstItem="arB-yG-ulN" firstAttribute="top" secondItem="DDn-Si-xr1" secondAttribute="bottom" constant="4" id="neO-Ev-WZZ"/>
+                <constraint firstAttribute="trailing" secondItem="arB-yG-ulN" secondAttribute="trailing" constant="4" id="uUE-Ee-qXX"/>
+                <constraint firstItem="arB-yG-ulN" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" constant="-8" id="yMn-Wi-amn"/>
+                <constraint firstItem="arB-yG-ulN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="z5K-Pb-uh1"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-217.55725190839695" y="-256.69014084507046"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

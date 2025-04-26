@@ -23,7 +23,6 @@ class AllTagsTableViewCell: UITableViewCell {
     
     func setupViews(allTags: [Tag]) {
         self.allTags = allTags
-        print("all tags are: \(allTags)")
         tagsCollectionView.reloadData()
     }
     

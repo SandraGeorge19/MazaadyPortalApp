@@ -10,6 +10,7 @@ import Combine
 
 final class UserProfileViewModel: UserProfileViewModelContract {
     @Published var userInfo: UserInfo?
+    @Published var allProducts: [Product]?
     @Published var advertisements: Advertisements?
     @Published var allTags: AllTags?
     
@@ -38,8 +39,9 @@ final class UserProfileViewModel: UserProfileViewModelContract {
         self.userInfo = userInfo
     }
     
-    func getProducts() async throws -> [Product] {
-        return try await getProductsUseCase.execute()
+    func getProducts() async throws  {
+        let allProducts = try await getProductsUseCase.execute()
+        self.allProducts = allProducts
     }
     
     func searchForProduct(searchText: String) async throws -> [Product] {

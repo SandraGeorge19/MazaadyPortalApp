@@ -21,7 +21,7 @@ class ProductsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         productsContentTableView.rowHeight = UITableView.automaticDimension
-        productsContentTableView.estimatedRowHeight = 300
+        productsContentTableView.estimatedRowHeight = 500
         registerCells()
         productsContentTableView.delegate = self
         productsContentTableView.dataSource = self
@@ -40,7 +40,7 @@ class ProductsViewController: UIViewController {
     private func registerCells() {
         // Register SearchBar table view cell
         productsContentTableView.register(UINib(nibName: "CustomSearchBarTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomSearchBarTableViewCell")
-        productsContentTableView.register(UINib(nibName: "LanguageTableViewCell", bundle: nil), forCellReuseIdentifier: "LanguageTableViewCell")
+        productsContentTableView.register(UINib(nibName: "ProductsTableViewCell", bundle: nil), forCellReuseIdentifier: "ProductsTableViewCell")
         // Register advertisements table view cell
         productsContentTableView.register(UINib(nibName: "AdvertisementsTableViewCell", bundle: nil), forCellReuseIdentifier: "AdvertisementsTableViewCell")
         // Register tags table view cell
@@ -69,10 +69,11 @@ extension ProductsViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         case 1:
             // for products
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "LanguageTableViewCell", for: indexPath) as? LanguageTableViewCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProductsTableViewCell", for: indexPath) as? ProductsTableViewCell else {
                 return UITableViewCell()
             }
             // configure
+            cell.setupProducts(products: viewModel?.allProducts ?? [])
             return cell
         case 2:
             // for ads

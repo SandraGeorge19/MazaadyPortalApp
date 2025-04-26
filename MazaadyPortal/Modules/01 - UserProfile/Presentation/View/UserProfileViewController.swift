@@ -18,6 +18,9 @@ class UserProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        view.layer.backgroundColor = UIColor(hex: "#F6F4F5").cgColor
+        homeTableView.layer.backgroundColor = UIColor.black.cgColor
+        
         homeTableView.rowHeight = UITableView.automaticDimension
         homeTableView.estimatedRowHeight = 70
         registerCells()
@@ -25,8 +28,8 @@ class UserProfileViewController: UIViewController {
         homeTableView.dataSource = self
        
         viewModel.$advertisements
-            .combineLatest(viewModel.$userInfo, viewModel.$allTags)
-            .sink { [weak self] advertisements, userInfo, allTags in
+            .combineLatest(viewModel.$userInfo, viewModel.$allProducts, viewModel.$allTags)
+            .sink { [weak self] advertisements, userInfo, allProducts, allTags in
                 DispatchQueue.main.async {
                     // Reload only when both userInfo and advertisements are available
                     self?.homeTableView.reloadData()
@@ -36,6 +39,7 @@ class UserProfileViewController: UIViewController {
         Task {
             do {
                 try await viewModel.getUserInfo()
+                try await viewModel.getProducts()
                 try await viewModel.getAdvertisements()
                 try await viewModel.getAllTags()
             } catch {
