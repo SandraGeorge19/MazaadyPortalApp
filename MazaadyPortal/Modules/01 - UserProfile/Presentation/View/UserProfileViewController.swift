@@ -41,25 +41,6 @@ class UserProfileViewController: UIViewController {
                 print("Error fetching user info or advertisements: \(error)")
             }
         }
-//        
-//        viewModel.$advertisements
-//            .sink { [weak self] adds in
-//                // Update your view or reload tableView when userInfo changes
-//                DispatchQueue.main.async {
-//                    // Update your view or reload tableView when userInfo changes
-//                    self?.homeTableView.reloadData()
-//                }
-//            }
-//            .store(in: &cancellables)
-//        viewModel.$userInfo
-//            .sink { [weak self] userInfo in
-//                // Update your view or reload tableView when userInfo changes
-//                DispatchQueue.main.async {
-//                    // Update your view or reload tableView when userInfo changes
-//                    self?.homeTableView.reloadData()
-//                }
-//            }
-//            .store(in: &cancellables)
         
     }
     
@@ -68,8 +49,8 @@ class UserProfileViewController: UIViewController {
         homeTableView.register(UINib(nibName: "LanguageTableViewCell", bundle: nil), forCellReuseIdentifier: "LanguageTableViewCell")
         // Register user info table view cell
         homeTableView.register(UINib(nibName: "UserInfoTableViewCell", bundle: nil), forCellReuseIdentifier: "UserInfoTableViewCell")
-        // Register advertisements table view cell
-        homeTableView.register(UINib(nibName: "AdvertisementsTableViewCell", bundle: nil), forCellReuseIdentifier: "AdvertisementsTableViewCell")
+        // Register taps table view cell
+        homeTableView.register(UINib(nibName: "TobTapsTableViewCell", bundle: nil), forCellReuseIdentifier: "TobTapsTableViewCell")
     }
     
     func asyncCall() async throws -> [Product] {
@@ -89,7 +70,7 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -107,36 +88,13 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
             // configure
             cell.setupViews(with: viewModel.userInfo)
             return cell
-        case 2:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "LanguageTableViewCell", for: indexPath) as? LanguageTableViewCell else {
-                return UITableViewCell()
-            }
-            // configure
-            return cell
-        case 3:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "LanguageTableViewCell", for: indexPath) as? LanguageTableViewCell else {
-                return UITableViewCell()
-            }
-            // configure
-            return cell
-        case 4:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "LanguageTableViewCell", for: indexPath) as? LanguageTableViewCell else {
-                return UITableViewCell()
-            }
-            // configure
-            return cell
-        case 5:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "AdvertisementsTableViewCell", for: indexPath) as? AdvertisementsTableViewCell else {
-                return UITableViewCell()
-            }
-            // configure
-            cell.initAdds(adds: viewModel.advertisements?.advertisements ?? [])
-            return cell
         default:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "LanguageTableViewCell", for: indexPath) as? LanguageTableViewCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "TobTapsTableViewCell", for: indexPath) as? TobTapsTableViewCell else {
                 return UITableViewCell()
             }
             // configure
+            cell.setupProducts(viewModel: viewModel)
+            cell.configure(parent: self)
             return cell
         }
     }
