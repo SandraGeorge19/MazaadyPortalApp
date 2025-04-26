@@ -25,7 +25,6 @@ class AdvertisementsTableViewCell: UITableViewCell {
     
     func initAdds(adds: [Advertisement]) {
         self.adds = adds
-        print("adds are: \(adds)")
         addsTableView.reloadData()
     }
     

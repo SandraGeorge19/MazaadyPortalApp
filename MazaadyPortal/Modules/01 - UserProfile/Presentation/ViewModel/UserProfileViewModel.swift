@@ -11,6 +11,7 @@ import Combine
 final class UserProfileViewModel: UserProfileViewModelContract {
     @Published var userInfo: UserInfo?
     @Published var advertisements: Advertisements?
+    @Published var allTags: AllTags?
     
     private let getUserInfoUseCase: GetUserInfoUseCaseContract
     private let getProductsUseCase: GetAllProductsUseCaseContract
@@ -50,7 +51,8 @@ final class UserProfileViewModel: UserProfileViewModelContract {
         self.advertisements = ads
     }
     
-    func getAllTags() async throws -> AllTags {
-        return try await getAllTagsUseCase.execute()
+    func getAllTags() async throws {
+        let allTags = try await getAllTagsUseCase.execute()
+        self.allTags = allTags
     }
 }

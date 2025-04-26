@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension UIView {
-
+    
     func xibSetup() {
         if let contentView = loadViewFromNib() {
             contentView.frame = bounds
@@ -23,12 +23,20 @@ extension UIView {
             ])
         }
     }
-
+    
     fileprivate func loadViewFromNib() -> UIView! {
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: String(describing: type(of: self)), bundle: bundle)
         let view = nib.instantiate(withOwner: self, options: nil).first as? UIView
-
+        
         return view
+    }
+    
+    func setBorderAndCornerRadius(borderWidth: CGFloat = 1, borderColor: UIColor = .lightGray, cornerRadius: CGFloat = 8, backgroundColor: UIColor? = nil) {
+        self.backgroundColor = backgroundColor
+        self.layer.borderWidth = borderWidth
+        self.layer.borderColor = borderColor.cgColor
+        self.layer.cornerRadius = cornerRadius
+        self.layer.masksToBounds = true
     }
 }

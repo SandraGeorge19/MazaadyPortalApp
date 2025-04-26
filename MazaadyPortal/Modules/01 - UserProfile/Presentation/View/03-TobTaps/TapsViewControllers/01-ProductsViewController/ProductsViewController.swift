@@ -38,9 +38,13 @@ class ProductsViewController: UIViewController {
     
     
     private func registerCells() {
+        // Register SearchBar table view cell
+        productsContentTableView.register(UINib(nibName: "CustomSearchBarTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomSearchBarTableViewCell")
         productsContentTableView.register(UINib(nibName: "LanguageTableViewCell", bundle: nil), forCellReuseIdentifier: "LanguageTableViewCell")
         // Register advertisements table view cell
         productsContentTableView.register(UINib(nibName: "AdvertisementsTableViewCell", bundle: nil), forCellReuseIdentifier: "AdvertisementsTableViewCell")
+        // Register tags table view cell
+        productsContentTableView.register(UINib(nibName: "AllTagsTableViewCell", bundle: nil), forCellReuseIdentifier: "AllTagsTableViewCell")
     }
 
 }
@@ -58,7 +62,7 @@ extension ProductsViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.row {
         case 0:
             // for search
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "LanguageTableViewCell", for: indexPath) as? LanguageTableViewCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomSearchBarTableViewCell", for: indexPath) as? CustomSearchBarTableViewCell else {
                 return UITableViewCell()
             }
             // configure
@@ -80,10 +84,11 @@ extension ProductsViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         default:
             // for tags
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "LanguageTableViewCell", for: indexPath) as? LanguageTableViewCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "AllTagsTableViewCell", for: indexPath) as? AllTagsTableViewCell else {
                 return UITableViewCell()
             }
             // configure
+            cell.setupViews(allTags: viewModel?.allTags?.tags ?? [])
             return cell
         }
     }

@@ -25,8 +25,8 @@ class UserProfileViewController: UIViewController {
         homeTableView.dataSource = self
        
         viewModel.$advertisements
-            .combineLatest(viewModel.$userInfo)
-            .sink { [weak self] advertisements, userInfo in
+            .combineLatest(viewModel.$userInfo, viewModel.$allTags)
+            .sink { [weak self] advertisements, userInfo, allTags in
                 DispatchQueue.main.async {
                     // Reload only when both userInfo and advertisements are available
                     self?.homeTableView.reloadData()
@@ -37,6 +37,7 @@ class UserProfileViewController: UIViewController {
             do {
                 try await viewModel.getUserInfo()
                 try await viewModel.getAdvertisements()
+                try await viewModel.getAllTags()
             } catch {
                 print("Error fetching user info or advertisements: \(error)")
             }
