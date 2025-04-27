@@ -13,7 +13,7 @@ A modern iOS application built with **UIKit**, displaying auction products in a 
 - No third-party libraries (fully native UIKit)
 
 ## 🛠️ Requirements
-- iOS 14.0+
+- iOS 16.0+
 - Xcode 15+
 - Swift 5.9
 
@@ -26,11 +26,14 @@ A modern iOS application built with **UIKit**, displaying auction products in a 
 3. Build and run on a simulator or device.
 
 ## 📋 Project Structure
-- `Views/`: Nib files and UIViews
-- `Controllers/`: ViewControllers
-- `Models/`: Codable models for parsing JSON
-- `Layouts/`: Custom WaterfallLayout
-- `Resources/`: Assets and constants
+> Project is organized following **Clean Architecture** principles (Service → Repository → UseCase → ViewModel → ViewController).
+- `Services/`: Networking layer handling API calls.
+- `Repositories/`: Responsible for data handling and communication between services and use cases.
+- `UseCases/`: Business logic of the app, coordinates between repositories and view models.
+- `ViewModels/`: Prepare and manage data for the UI.
+- `Views/`: Reusable UI components created using UIKit with `.xib` (Nib) files.
+- `Controllers/`: ViewControllers that bind the ViewModels to the Views.
+
 
 ## 👩‍💻 Author
 - Sandra George
