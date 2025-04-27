@@ -60,9 +60,7 @@ extension UISegmentedControl {
         
         self.addSubview(underline)
     }
-    
-    // Changing underline position
-    
+        
     func changeUnderlinePosition() {
         guard let underline = self.viewWithTag(1) else { return }
         

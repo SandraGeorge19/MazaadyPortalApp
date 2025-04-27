@@ -17,7 +17,6 @@ class UserProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         view.layer.backgroundColor = UIColor(hex: "#F6F4F5").cgColor
         homeTableView.layer.backgroundColor = UIColor.black.cgColor
         
@@ -31,7 +30,6 @@ class UserProfileViewController: UIViewController {
             .combineLatest(viewModel.$userInfo, viewModel.$allProducts, viewModel.$allTags)
             .sink { [weak self] advertisements, userInfo, allProducts, allTags in
                 DispatchQueue.main.async {
-                    // Reload only when both userInfo and advertisements are available
                     self?.homeTableView.reloadData()
                 }
             }
@@ -57,15 +55,6 @@ class UserProfileViewController: UIViewController {
         // Register taps table view cell
         homeTableView.register(UINib(nibName: "TobTapsTableViewCell", bundle: nil), forCellReuseIdentifier: "TobTapsTableViewCell")
     }
-    
-    func asyncCall() async throws -> [Product] {
-        do {
-            return try await viewModel.searchForProduct(searchText: "bid")
-        } catch {
-            throw error
-        }
-    }
-    
 }
 
 

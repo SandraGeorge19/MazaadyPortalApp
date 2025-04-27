@@ -80,9 +80,30 @@ class CountDownView: UIView {
         let hours = (Int(remaining) % 86400) / 3600
         let minutes = (Int(remaining) % 3600) / 60
         
-        daysLabel.text = "\(String(format: "%02d D", days)) \n D"
-        hoursLabel.text = String(format: "%02d H", hours)
-        minutesLabel.text = String(format: "%02d M", minutes)
+        setupCountDownLabel(number: days, duration: "D", for: daysLabel)
+        setupCountDownLabel(number: hours, duration: "H", for: hoursLabel)
+        setupCountDownLabel(number: minutes, duration: "M", for: minutesLabel)
+    }
+    
+    private func setupCountDownLabel(number: Int, duration: String, for label: UILabel) {
+        let fullText = "\(number) \n\(duration)"
+        let attributedText = NSMutableAttributedString(string: fullText)
+        
+        attributedText.addAttributes([
+            .font: UIFont.nunitoFont(size: 10)!,
+            .foregroundColor: UIColor(hex: "#FF951D")
+        ], range: (fullText as NSString).range(of: "\(number)"))
+        
+        attributedText.addAttributes([
+            .font: UIFont.nunitoFont(size: 10)!,
+            .foregroundColor: UIColor(hex: "#FF951D")
+        ], range: (fullText as NSString).range(of: duration))
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .center
+        attributedText.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedText.length))
+
+        label.attributedText = attributedText
     }
     
     deinit {

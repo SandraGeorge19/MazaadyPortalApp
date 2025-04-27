@@ -34,7 +34,6 @@ class ProductsTableViewCell: UITableViewCell {
         productsCollectionView.collectionViewLayout = layout
         
         productsCollectionView.register(UINib(nibName: "ProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ProductCollectionViewCell")
-
         
         productsCollectionView.dataSource = self
         productsCollectionView.delegate = self

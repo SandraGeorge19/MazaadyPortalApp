@@ -19,7 +19,6 @@ class ProductsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         productsContentTableView.rowHeight = UITableView.automaticDimension
         productsContentTableView.estimatedRowHeight = 500
         registerCells()
@@ -29,7 +28,6 @@ class ProductsViewController: UIViewController {
         viewModel?.$advertisements
             .sink { [weak self] advertisements in
                 DispatchQueue.main.async {
-                    // Reload only when both userInfo and advertisements are available
                     self?.productsContentTableView.reloadData()
                 }
             }
